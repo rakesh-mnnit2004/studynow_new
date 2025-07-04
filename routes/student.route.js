@@ -1,16 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const { createStudent, listStudents }=require('./../controller/student.controller');
 
 // Example: Register route
-router.post('/create', (req, res) => {
-  // Registration logic here
-  res.json({ message: 'User registered successfully' });
-});
+router.post('/create', createStudent);
 
 // Example: Login route
-router.post('/list', (req, res) => {
-  // Login logic here
-  res.json({ message: 'User logged in successfully' });
-});
+router.get('/list', listStudents);
 
 module.exports = router;

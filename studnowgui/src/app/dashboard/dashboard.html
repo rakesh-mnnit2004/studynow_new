@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+
+<table border="1">
+  <tr>
+
+    <th>Name</th>
+    <th>Email</th>
+ 
+  </tr>
+  <tr *ngFor="let student of StudentList; let i = index">
+  
+    <td>{{ student.name }}</td>
+    <td>{{ student.email }}</td>
+  
+  </tr>
+</table>
