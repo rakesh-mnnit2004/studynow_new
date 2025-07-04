@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow" style="width: 25rem;">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4">Register</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+       
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger small">
+            Valid email is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger small">
+            Password is required (min 6 chars).
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm password">
+          <div *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched" class="text-danger small">
+            Passwords do not match.
+          </div>
+        </div>
+         <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile No.</label>
+          <input type="text" class="form-control" id="mobile" formControlName="mobile" placeholder="Enter mobile">
+          <div *ngIf="registerForm.get('mobile')?.invalid && registerForm.get('mobile')?.touched" class="text-danger small">
+            Mobile is required.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+      </form>
+      <div class="text-center mt-3">
+        <a routerLink="/login">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+</div>

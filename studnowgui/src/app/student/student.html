@@ -1,1 +1,28 @@
-<p>student works!</p>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow" style="width: 28rem;">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4">Add Student</h3>
+      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter name">
+          <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched" class="text-danger small">
+            Name is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+          <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched" class="text-danger small">
+            Valid email is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="courses" class="form-label">Courses</label>
+          <input type="text" class="form-control" id="courses" formControlName="courses" placeholder="Enter course IDs (comma separated)">
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="studentForm.invalid">Add Student</button>
+      </form>
+    </div>
+  </div>
+</div>
