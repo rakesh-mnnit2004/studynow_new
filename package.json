@@ -1,0 +1,30 @@
+{
+  "name": "studynow_new",
+  "version": "1.0.0",
+  "description": "Visa processing",
+  "homepage": "https://github.com/rakesh-mnnit2004/studynow#readme",
+  "bugs": {
+    "url": "https://github.com/rakesh-mnnit2004/studynow/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakesh-mnnit2004/studynow.git"
+  },
+  "license": "ISC",
+  "author": "Rakesh",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1"
+  }
+}
