@@ -2,8 +2,8 @@ const User = require('./../model/user.model');
 const jwt = require('jsonwebtoken');
 require('dotenv').config(); // Ensure dotenv is loaded
 
-const jwttokensecret = process.env.JWT_SECRET; // Use uppercase and underscore by convention
-
+const jwttokensecret = process.env.JWT_SECRET || 'studynow12345'; // Use uppercase and underscore by convention
+const tokenexptime = process.env.JWT_TOKEN_EXPIRATION_TIME || '1hr'; 
 
 
 
@@ -35,7 +35,7 @@ const validateLogin = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email },
       jwttokensecret, // Replace with your secret
-      { expiresIn: '1h' }
+      { expiresIn: tokenexptime }
     );
     res.json({ message: 'Login successful', user, token });
   } catch (err) {

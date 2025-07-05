@@ -9,9 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.css'
 })
 export class Dashboard {
-  StudentList: [];
+  StudentList: any = [];
   constructor(private studentservice: StudentService){
-    this.StudentList=[];
+ 
      this.getStudentList();
   }
 

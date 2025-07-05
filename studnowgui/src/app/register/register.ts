@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Register {
   registerForm: FormGroup;
-
+  registrationErr:boolean=false;
   constructor(private fb: FormBuilder, private router: Router, private authservice:AuthService) {
     this.registerForm = this.fb.group({
       mobile: ['', [Validators.required]],
@@ -29,7 +29,7 @@ export class Register {
   }
 
   onSubmit() {
-  console.log(this.registerForm.valid+ "helloooo ", this.registerForm.value)
+  
     if (this.registerForm.valid) {
       // Call validatelogin from AuthService
       this.authservice.UserRegistration(this.registerForm.value).subscribe({
@@ -40,6 +40,7 @@ export class Register {
 
         },
         error: (error) => {
+          this.registrationErr=true;
           console.error('Login failed:', error);
           // Show error message to user
         }
