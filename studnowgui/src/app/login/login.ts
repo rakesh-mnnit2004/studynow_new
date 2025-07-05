@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth/auth-service';
 import { Router, RouterLink } from '@angular/router'; // Use Router, not Route
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class Login {
   loginForm: FormGroup;
-
+  loginError:boolean=false;
   constructor(private fb: FormBuilder, private authservice: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -33,6 +33,7 @@ onSubmit() {
 
         },
         error: (error) => {
+          this.loginError=true;
           console.error('Login failed:', error);
           // Show error message to user
         }

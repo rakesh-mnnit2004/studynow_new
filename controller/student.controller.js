@@ -15,7 +15,7 @@ const createStudent = async (req, res) => {
 // List all students
 const listStudents = async (req, res) => {
   try {
-    const students = await Student.find().populate('courses');
+    const students = await Student.find().sort({ createdAt: -1 }).populate('courses');
     res.json(students);
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });

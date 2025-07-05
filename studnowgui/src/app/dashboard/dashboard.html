@@ -1,15 +1,22 @@
 
-<table border="1">
-  <tr>
-
-    <th>Name</th>
+<h3>Student List</h3>
+<table class="table table-striped">
+      <thead>
+    <tr>
+     <th>Name</th>
     <th>Email</th>
- 
-  </tr>
+     <th>Course</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+ <tbody>
   <tr *ngFor="let student of StudentList; let i = index">
   
-    <td>{{ student.name }}</td>
+    <td scope="row">{{ student.name }}</td>
     <td>{{ student.email }}</td>
-  
+  <td>{{ student.courses }}</td>
+  <td>{{ student.status }}</td>
   </tr>
+  </tbody>
 </table>
+

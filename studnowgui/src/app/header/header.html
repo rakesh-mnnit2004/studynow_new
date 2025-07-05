@@ -1,9 +1,11 @@
 <header class="bg-primary text-white p-3">
-  <div class="container d-flex justify-content-between align-items-center">
+  <div class="container d-flex  align-items-left">
     <h1 class="mb-0">StudyNow</h1>
+  </div>
+  <div class="align-items-right" style="text-align:right;">  
     <nav>
-      <a routerLink="/dashboard" class="text-white me-3">Dashboard</a>
-      <a routerLink="/logout" (click)="logout()" class="text-white" style="cursor:pointer;">Logout</a>
+      <a routerLink="/dashboard" class="text-white me-3" style="cursor:pointer; text-decoration: none;">Dashboard</a>
+      <a routerLink="/logout" (click)="logout()" class="text-white" style="cursor:pointer; text-decoration: none;">Logout</a>
     </nav>
   </div>
 </header>
