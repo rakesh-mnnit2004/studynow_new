@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class Register {
   registerForm: FormGroup;
   registrationErr:boolean=false;
+  useralreadyexist:string='';
   constructor(private fb: FormBuilder, private router: Router, private authservice:AuthService) {
     this.registerForm = this.fb.group({
       mobile: ['', [Validators.required]],
@@ -41,6 +42,7 @@ export class Register {
         },
         error: (error) => {
           this.registrationErr=true;
+          this.useralreadyexist=error.error.message;
           console.error('Login failed:', error);
           // Show error message to user
         }
