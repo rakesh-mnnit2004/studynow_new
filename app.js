@@ -24,6 +24,8 @@ console.log('MongoDB connected')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use("/api/auth", authRoute);
 // app.use("/api/course", authRoute);
  app.use("/api/student", authMiddleware,  studentRoute);
