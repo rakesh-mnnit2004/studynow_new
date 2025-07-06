@@ -24,8 +24,19 @@ console.log('MongoDB connected')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-
+//app.use('/dashboard*',express.static(path.join(__dirname, 'public')));
+app.get('/dashboard{*any}', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+app.get('/login{*any}', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+app.get('/student{*any}', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+app.get('/register{*any}', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 app.use("/api/auth", authRoute);
 // app.use("/api/course", authRoute);
  app.use("/api/student", authMiddleware,  studentRoute);
