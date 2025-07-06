@@ -9,7 +9,7 @@
 URL: http://localhost:8000
 ### For angular, run below command
  ng serve
-### Angular URL : http://localhost:4200
+ Angular URL : http://localhost:4200
 
 ## Dockerize the application
 ### Create docker image by running below command:
